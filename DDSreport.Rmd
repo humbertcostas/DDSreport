@@ -1,0 +1,119 @@
+---
+title: "Incident analysis based on MITRE standards"
+author: "Humbert Costas"
+date: "20/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introducción
+
+Como miembros del CADET (Cybersecurity Analyst Data Experts Team) se solicita 
+vuestra colaboración para el análisis de los incidentes que afectaron con anterioridad.
+
+![Especialidades individuales](doc/cadet.png)
+
+
+## Objetivo
+
+El objetivo consiste en responder las siguientes preguntas:
+
+  1. ¿Quien estaba detras de los ataques?
+  2. ¿Cual fue el objetivo?
+  3. ¿Cómo realizaron los ataques?
+  4. ¿Cómo podemos protegernos?
+  5. ¿Qué podemos hacer para prevenir futuros ataques?
+  6. ¿Sería posible predecir ataques?
+
+## Alcance
+
+Respondiendo 3 preguntas se consigue una puntuación de 5 sobre 10.  
+Las siguientes preguntas suman 2 puntos, pudiendo conseguir un máximo de 10.
+
+# Data sets
+
+## Incidentes
+
+__TODO__
+
+```{r ds_incidents}
+raw_incidents <- ""
+```
+
+## CVE
+
+__TODO__
+
+```{r ds_cve}
+raw_cves <- ""
+```
+
+## CWE
+
+__TODO__
+
+```{r ds_cwe}
+raw_cwes <- ""
+```
+
+## ATT&CK
+
+__TODO__
+
+```{r ds_attck}
+```
+
+## SHIELD
+
+__TODO__
+
+```{r ds_shield}
+```
+
+## CPE
+
+__TODO__
+
+```{r ds_cpe}
+```
+
+
+## CVSS
+
+__TODO__
+
+```{r ds_cvss}
+```
+
+
+## CAR
+
+__TODO__
+
+```{r ds_car}
+```
+
+# Data Model
+
+__TODO: Actualizar y completar el modelo__
+
+![CyberSecurity Standards](doc/standards.svg)
+
+# Análisis
+
+## ¿Quien estaba detras de los ataques?
+
+## ¿Cuál fue el objetivo?
+
+## ¿Cómo realizaron los ataques?
+
+## ¿Cómo podemos protegernos?
+
+## ¿Qué podemos hacer para prevenir futuros ataques?
+
+## ¿Sería posible predecir ataques?
+
+
