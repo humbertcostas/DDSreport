@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Como miembros del CADET (Cybersecurity Analyst Data Experts Team) se solicita 
 vuestra colaboración para el análisis de los incidentes que afectaron con anterioridad.
 
-![Especialidades individuales](doc/cadet.png)
+![Especialidades individuales](images/cadet.png)
 
 
 ## Objetivo
@@ -100,7 +100,7 @@ __TODO__
 
 __TODO: Actualizar y completar el modelo__
 
-![CyberSecurity Standards](doc/standards.svg)
+![CyberSecurity Standards](images/standards.svg)
 
 # Análisis
 
