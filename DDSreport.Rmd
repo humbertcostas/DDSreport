@@ -35,12 +35,73 @@ Las siguientes preguntas suman 2 puntos, pudiendo conseguir un máximo de 10.
 
 # Data sets
 
+```{r load_packages}
+suppressPackageStartupMessages(library("dplyr"))
+library("tidyr")
+library("DataExplorer")
+library("ggridges")
+library("ggplot2")
+library("hrbrthemes")
+library("viridis")
+```
+
 ## Incidentes
 
-__TODO__
+Load incidents data set and unnest ATT&CK column.
 
 ```{r ds_incidents}
-raw_incidents <- ""
+raw_incidents <- readRDS(file = "data/incidents.rds")
+incidents <- raw_incidents %>% unnest(mitre_attack)
+summary(incidents)
+```
+Analyze character columns to identify unique values.
+
+```{r ds_inc_factors}
+apply(incidents, 2, function(x) length(unique(x)))
+```
+
+Set character columns as factor.
+
+```{r}
+incidents <- incidents %>%
+  mutate_if(is.character, as.factor)
+summary(incidents)
+```
+```{r fig.width=8, fig.height=8}
+plot_correlation(incidents)
+```
+
+Seems that Tactic and Industry values are interesting.
+Let's see industry distribution along time.
+
+```{r}
+# Ref: https://www.r-graph-gallery.com/294-basic-ridgeline-plot.html
+
+ggplot(incidents, aes(x = first_event_ts, y = industry, fill = industry)) +
+  geom_density_ridges() +
+  theme_ridges() + 
+  theme(legend.position = "none")
+
+```
+  
+The time series distribution is based on first event. We can calculate the duration of the incidents using containment time.
+
+```{r fig.width=8, fig.height=8}
+# Ref: https://www.r-graph-gallery.com/320-the-basis-of-bubble-plot.html
+incidents <- incidents %>% mutate(duration = round(as.numeric(containment_ts - first_event_ts)/3600, 2))
+
+incidents %>%
+  arrange(desc(first_event_ts)) %>%
+  # mutate(country = factor(country, country)) %>%
+  ggplot(aes(x=first_event_ts, y=industry, size=duration, fill=tactic)) +
+  geom_point(alpha=0.5, shape=21, color="black") +
+  scale_size(range = c(.1, 20), name="Duration") +
+    scale_fill_viridis(discrete=TRUE, guide=FALSE, option="A") +
+    theme_ipsum() +
+    theme(legend.position="bottom") +
+    ylab("Industry") +
+    xlab("Incidents") +
+    theme(legend.position = "none")
 ```
 
 ## CVE
