@@ -1,7 +1,7 @@
 ---
 title: "Incident analysis based on MITRE standards"
 author: "Humbert Costas"
-date: "20/12/2020"
+date: "11/06/2021"
 output: html_document
 ---
 
@@ -11,41 +11,46 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introducción
 
-Como miembros del CADET (Cybersecurity Analyst Data Experts Team) se solicita 
-vuestra colaboración para el análisis de los incidentes que afectaron con anterioridad.
-
-![Especialidades individuales](images/cadet.png)
-
+Como miembro del equipo de cybersecurity y experto en data science, se solicita 
+tu colaboración para el análisis de un conjunto de incidentes de seguridad añadiendo 
+información de contexto, que pueda ayudar a entender que sucedió y como mejorar.
 
 ## Objetivo
 
 El objetivo consiste en responder las siguientes preguntas:
 
-  1. ¿Quien estaba detras de los ataques?
-  2. ¿Cual fue el objetivo?
-  3. ¿Cómo realizaron los ataques?
-  4. ¿Cómo podemos protegernos?
-  5. ¿Qué podemos hacer para prevenir futuros ataques?
-  6. ¿Sería posible predecir ataques?
+  1. ¿Qué estandar/es podría/n añadir contexto a los incidentes?
+  2. ¿Cuantos incidentes estan relacionados con phishing?
+  3. ¿Quien estaba detras de los ataques?
+  4. ¿Cual fue el objetivo?
+  5. ¿Cómo realizaron los ataques?
+  6. ¿Cómo podemos protegernos?
+  7. ¿Qué podemos hacer para prevenir futuros ataques?
+  8. ¿Sería posible predecir ataques?
 
 ## Alcance
 
-Respondiendo 3 preguntas se consigue una puntuación de 5 sobre 10.  
-Las siguientes preguntas suman 2 puntos, pudiendo conseguir un máximo de 10.
+Cada pregunta tiene una puntuación máxima de 2 puntos; donde se evalua la parte
+análitica (1 punto) y la parte de programación (1 punto).
+
+En total se pueden llegar a conseguir un máximo de 10 puntos.
+
+Es posible hacer la práctica por parejas; en tal caso, los puntos totales se dividen 
+entre los dos alumnos, consiguiendo un máximo de 8 puntos.
 
 # Data sets
 
 ```{r load_packages}
 suppressPackageStartupMessages(library("dplyr"))
 library("tidyr")
-library("DataExplorer")
+suppressPackageStartupMessages(library("DataExplorer"))
 library("ggridges")
 library("ggplot2")
-library("hrbrthemes")
-library("viridis")
+suppressPackageStartupMessages(library("hrbrthemes"))
+suppressPackageStartupMessages(library("viridis"))
 ```
 
-## Incidentes
+## Incidents
 
 Load incidents data set and unnest ATT&CK column.
 
@@ -86,7 +91,7 @@ ggplot(incidents, aes(x = first_event_ts, y = industry, fill = industry)) +
   
 The time series distribution is based on first event. We can calculate the duration of the incidents using containment time.
 
-```{r fig.width=8, fig.height=8}
+```{r fig.width=8, fig.height=8, warning=FALSE}
 # Ref: https://www.r-graph-gallery.com/320-the-basis-of-bubble-plot.html
 incidents <- incidents %>% mutate(duration = round(as.numeric(containment_ts - first_event_ts)/3600, 2))
 
@@ -104,20 +109,24 @@ incidents %>%
     theme(legend.position = "none")
 ```
 
-## CVE
-
-__TODO__
-
-```{r ds_cve}
-raw_cves <- ""
-```
-
 ## CWE
 
 __TODO__
 
-```{r ds_cwe}
-raw_cwes <- ""
+```{r ds_cwe, cache=TRUE}
+source("data-raw/mitre-cwe.R")
+raw_cwes <- bind_rows(cwe.weaknesses, cwe.categories, cwe.views)
+rm(cwe.weaknesses, cwe.categories, cwe.views)
+dim(raw_cwes)
+```
+
+## CVE
+
+__TODO__
+
+```{r ds_cve, cache=TRUE}
+source("data-raw/nist-cve.R")
+raw_cves <- ""
 ```
 
 ## ATT&CK
@@ -125,6 +134,7 @@ raw_cwes <- ""
 __TODO__
 
 ```{r ds_attck}
+source("data-raw/mitre-attck.R")
 ```
 
 ## SHIELD
@@ -132,6 +142,7 @@ __TODO__
 __TODO__
 
 ```{r ds_shield}
+source("data-raw/mitre-shield.R")
 ```
 
 ## CPE
@@ -139,14 +150,15 @@ __TODO__
 __TODO__
 
 ```{r ds_cpe}
+# source("data-raw/nist-cpe.R")
 ```
 
-
-## CVSS
+## CAPEC
 
 __TODO__
 
-```{r ds_cvss}
+```{r ds_capec, warning=FALSE}
+source("data-raw/mitre-capec.R")
 ```
 
 
@@ -155,15 +167,20 @@ __TODO__
 __TODO__
 
 ```{r ds_car}
+source("data-raw/mitre-car.R")
 ```
 
 # Data Model
 
-__TODO: Actualizar y completar el modelo__
+__TODO: Actualizar y completar el modelo dejando solo aquellas relaciones que usais en el análisis__
 
 ![CyberSecurity Standards](images/standards.svg)
 
 # Análisis
+
+## ¿Qué estandar/es podría/n añadir contexto a los incidentes?
+
+## ¿Cuantos incidentes estan relacionados con phishing?
 
 ## ¿Quien estaba detras de los ataques?
 
