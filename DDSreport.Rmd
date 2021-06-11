@@ -125,8 +125,8 @@ dim(raw_cwes)
 __TODO__
 
 ```{r ds_cve, cache=TRUE}
-source("data-raw/nist-cve.R")
-raw_cves <- ""
+# source("data-raw/nist-cve.R")
+# raw_cves <- ""
 ```
 
 ## ATT&CK
@@ -134,7 +134,7 @@ raw_cves <- ""
 __TODO__
 
 ```{r ds_attck}
-source("data-raw/mitre-attck.R")
+# source("data-raw/mitre-attck.R")
 ```
 
 ## SHIELD
@@ -142,7 +142,7 @@ source("data-raw/mitre-attck.R")
 __TODO__
 
 ```{r ds_shield}
-source("data-raw/mitre-shield.R")
+# source("data-raw/mitre-shield.R")
 ```
 
 ## CPE
@@ -158,7 +158,7 @@ __TODO__
 __TODO__
 
 ```{r ds_capec, warning=FALSE}
-source("data-raw/mitre-capec.R")
+# source("data-raw/mitre-capec.R")
 ```
 
 
@@ -167,7 +167,7 @@ source("data-raw/mitre-capec.R")
 __TODO__
 
 ```{r ds_car}
-source("data-raw/mitre-car.R")
+# source("data-raw/mitre-car.R")
 ```
 
 # Data Model

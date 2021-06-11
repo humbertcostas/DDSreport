@@ -174,11 +174,13 @@ pre code {
 
 <div id="introducción" class="section level1">
 <h1>Introducción</h1>
-<p>Como miembro del equipo de cybersecurity y experto en data science, se solicita tu colaboración para el análisis de un conjunto de incidentes enriqueciendo la información añadiendo contexto, que ayudará a entender que sucedió y como mejorar.</p>
+<p>Como miembro del equipo de cybersecurity y experto en data science, se solicita tu colaboración para el análisis de un conjunto de incidentes de seguridad añadiendo información de contexto, que pueda ayudar a entender que sucedió y como mejorar.</p>
 <div id="objetivo" class="section level2">
 <h2>Objetivo</h2>
 <p>El objetivo consiste en responder las siguientes preguntas:</p>
 <ol style="list-style-type: decimal">
+<li>¿Qué estandar/es podría/n añadir contexto a los incidentes?</li>
+<li>¿Cuantos incidentes estan relacionados con phishing?</li>
 <li>¿Quien estaba detras de los ataques?</li>
 <li>¿Cual fue el objetivo?</li>
 <li>¿Cómo realizaron los ataques?</li>
@@ -189,8 +191,9 @@ pre code {
 </div>
 <div id="alcance" class="section level2">
 <h2>Alcance</h2>
-<p>Respondiendo 3 preguntas se consigue una puntuación de 5 sobre 10.<br />
-Las siguientes preguntas suman 2 puntos, pudiendo conseguir un máximo de 10.</p>
+<p>Cada pregunta tiene una puntuación máxima de 2 puntos; donde se evalua la parte análitica (1 punto) y la parte de programación (1 punto).</p>
+<p>En total se pueden llegar a conseguir un máximo de 10 puntos.</p>
+<p>Es posible hacer la práctica por parejas; en tal caso, los puntos totales se dividen entre los dos alumnos, consiguiendo un máximo de 8 puntos.</p>
 </div>
 </div>
 <div id="data-sets" class="section level1">
@@ -311,75 +314,33 @@ dim(raw_cwes)</code></pre>
 <div id="cve" class="section level2">
 <h2>CVE</h2>
 <p><strong>TODO</strong></p>
-<pre class="r"><code>source(&quot;data-raw/nist-cve.R&quot;)</code></pre>
-<pre><code>## [1] &quot;[PARSE][CVE] Parsing year 2002&quot;
-## [1] &quot;[PARSE][CVE] 6768 vulnerabilities from year 2002&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2003&quot;
-## [1] &quot;[PARSE][CVE] 1550 vulnerabilities from year 2003&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2004&quot;
-## [1] &quot;[PARSE][CVE] 2707 vulnerabilities from year 2004&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2005&quot;
-## [1] &quot;[PARSE][CVE] 4761 vulnerabilities from year 2005&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2006&quot;
-## [1] &quot;[PARSE][CVE] 7135 vulnerabilities from year 2006&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2007&quot;
-## [1] &quot;[PARSE][CVE] 6573 vulnerabilities from year 2007&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2008&quot;
-## [1] &quot;[PARSE][CVE] 7166 vulnerabilities from year 2008&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2009&quot;
-## [1] &quot;[PARSE][CVE] 5005 vulnerabilities from year 2009&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2010&quot;
-## [1] &quot;[PARSE][CVE] 5174 vulnerabilities from year 2010&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2011&quot;
-## [1] &quot;[PARSE][CVE] 4814 vulnerabilities from year 2011&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2012&quot;
-## [1] &quot;[PARSE][CVE] 5824 vulnerabilities from year 2012&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2013&quot;
-## [1] &quot;[PARSE][CVE] 6635 vulnerabilities from year 2013&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2014&quot;
-## [1] &quot;[PARSE][CVE] 8845 vulnerabilities from year 2014&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2015&quot;
-## [1] &quot;[PARSE][CVE] 8520 vulnerabilities from year 2015&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2016&quot;
-## [1] &quot;[PARSE][CVE] 10466 vulnerabilities from year 2016&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2017&quot;
-## [1] &quot;[PARSE][CVE] 16404 vulnerabilities from year 2017&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2018&quot;
-## [1] &quot;[PARSE][CVE] 16572 vulnerabilities from year 2018&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2019&quot;
-## [1] &quot;[PARSE][CVE] 16349 vulnerabilities from year 2019&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2020&quot;
-## [1] &quot;[PARSE][CVE] 17353 vulnerabilities from year 2020&quot;
-## [1] &quot;[PARSE][CVE] Parsing year 2021&quot;
-## [1] &quot;[PARSE][CVE] 5848 vulnerabilities from year 2021&quot;</code></pre>
-<pre class="r"><code>raw_cves &lt;- &quot;&quot;</code></pre>
+<pre class="r"><code># source(&quot;data-raw/nist-cve.R&quot;)
+# raw_cves &lt;- &quot;&quot;</code></pre>
 </div>
 <div id="attck" class="section level2">
 <h2>ATT&amp;CK</h2>
 <p><strong>TODO</strong></p>
-<pre class="r"><code>source(&quot;data-raw/mitre-attck.R&quot;)</code></pre>
+<pre class="r"><code># source(&quot;data-raw/mitre-attck.R&quot;)</code></pre>
 </div>
 <div id="shield" class="section level2">
 <h2>SHIELD</h2>
 <p><strong>TODO</strong></p>
-<pre class="r"><code>source(&quot;data-raw/mitre-shield.R&quot;)</code></pre>
-<pre><code>## RJSONIO not loaded</code></pre>
+<pre class="r"><code># source(&quot;data-raw/mitre-shield.R&quot;)</code></pre>
 </div>
 <div id="cpe" class="section level2">
 <h2>CPE</h2>
 <p><strong>TODO</strong></p>
-<pre class="r"><code>source(&quot;data-raw/nist-cpe.R&quot;)</code></pre>
+<pre class="r"><code># source(&quot;data-raw/nist-cpe.R&quot;)</code></pre>
 </div>
 <div id="capec" class="section level2">
 <h2>CAPEC</h2>
 <p><strong>TODO</strong></p>
-<pre class="r"><code>source(&quot;data-raw/mitre-capec.R&quot;)</code></pre>
-<pre><code>## Multiple files in zip: reading &#39;capec_v3.4.xml&#39;</code></pre>
+<pre class="r"><code># source(&quot;data-raw/mitre-capec.R&quot;)</code></pre>
 </div>
 <div id="car" class="section level2">
 <h2>CAR</h2>
 <p><strong>TODO</strong></p>
-<pre class="r"><code>source(&quot;data-raw/mitre-car.R&quot;)</code></pre>
+<pre class="r"><code># source(&quot;data-raw/mitre-car.R&quot;)</code></pre>
 </div>
 </div>
 <div id="data-model" class="section level1">
@@ -392,6 +353,12 @@ dim(raw_cwes)</code></pre>
 </div>
 <div id="análisis" class="section level1">
 <h1>Análisis</h1>
+<div id="qué-estandares-podrían-añadir-contexto-a-los-incidentes" class="section level2">
+<h2>¿Qué estandar/es podría/n añadir contexto a los incidentes?</h2>
+</div>
+<div id="cuantos-incidentes-estan-relacionados-con-phishing" class="section level2">
+<h2>¿Cuantos incidentes estan relacionados con phishing?</h2>
+</div>
 <div id="quien-estaba-detras-de-los-ataques" class="section level2">
 <h2>¿Quien estaba detras de los ataques?</h2>
 </div>
